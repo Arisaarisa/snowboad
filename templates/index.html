@@ -6,6 +6,17 @@
 </head>
 <body>
 <h1>顧客一覧</h1>
+{% for customer in customers %}
+<li>{{ customer[0] }}さん {{customer[1] }}歳 {{customer[2]}} {{customer[3]}}</li>
+{% endfor %}
+<h2>新規顧客の追加</h2>
+<form action="{{url_for('add_customer')}}" method="post">
+    Name: <input type="text" name="name"><br>
+    Age: <input type="number" name="age"><br>
+    Sex: <input type="text" name="sex"><br>
+    Home: <input type="text" name="home"><br>
 
+    <input type="submit" value="add">
+</form>
 </body>
 </html>
