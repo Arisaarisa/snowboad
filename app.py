@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import db
 
+
 app = Flask(__name__)
 
 """
@@ -17,6 +18,7 @@ def index():
 
 
 @app.route("/add", methods=["POST"])
+
 def add_customer():
     """新規の顧客を追加する関数"""
     # フォームに入力されたデータを取得する
@@ -24,9 +26,9 @@ def add_customer():
     age = request.form["age"]
     sex = request.form["sex"]
     home = request.form["home"]
-
+    freeans = request.form["freeans"]
     # データをデータベースに保存する
-    db.add_customer(name, age, sex, home)
+    db.add_customer(name, age, sex, home, freeans)
 
     # index()にリダイレクトする
     return redirect("/index")

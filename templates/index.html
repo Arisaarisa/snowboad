@@ -5,18 +5,82 @@
     <title>snow-web</title>
 </head>
 <body>
-<h1>顧客一覧</h1>
+<link rel="stylesheet" href=".templates/app.css">
+<h1 style="color:steelblue">掲示板</h1>
+<div style="width:800px;height:150px;overflow:auto;">
 {% for customer in customers %}
-<li>{{ customer[0] }}さん {{customer[1] }}歳 {{customer[2]}} {{customer[3]}}</li>
+    <li>{{ customer[0] }}さん {{customer[1] }}歳 {{customer[2]}} {{customer[3]}} {{customer[4]}}</li>
 {% endfor %}
-<h2>新規顧客の追加</h2>
+</div>
+<h1 style="color:steelblue;"><em>募集投稿</em></h1>
 <form action="{{url_for('add_customer')}}" method="post">
-    Name: <input type="text" name="name"><br>
-    Age: <input type="number" name="age"><br>
-    Sex: <input type="text" name="sex"><br>
-    Home: <input type="text" name="home"><br>
+    <strong>Name:</strong> <input type="text" name="name"><br>
+    <strong>Age:</strong>
+    <select name="age">
+        <option>18歳以下</option>
+        <option>19~24歳</option>
+        <option>25歳~29歳</option>
+        <option>30歳~34歳</option>
+        <option>35歳~39歳</option>
+        <option>40歳以上</option>
+    </select><br>
+    <strong>性別:</strong> <input type="radio" name="sex" value="男"/> 男　
+    <input type="radio" name="sex" value="女"/> 女<br>
+    <strong>都道府県:</strong>
+    <select name="home">
+        <option>北海道</option>
+        <option>青森</option>
+        <option>岩手</option>
+        <option>宮城</option>
+        <option>秋田</option>
+        <option>山形</option>
+        <option>福島</option>
+        <option>茨城</option>
+        <option>栃木</option>
+        <option>群馬</option>
+        <option>埼玉</option>
+        <option>千葉</option>
+        <option>東京</option>
+        <option>神奈川</option>
+        <option>新潟</option>
+        <option>富山</option>
+        <option>石川</option>
+        <option>福井</option>
+        <option>山梨</option>
+        <option>長野</option>
+        <option>岐阜</option>
+        <option>静岡</option>
+        <option>愛知</option>
+        <option>三重</option>
+        <option>滋賀</option>
+        <option>京都</option>
+        <option>大阪</option>
+        <option>兵庫</option>
+        <option>奈良</option>
+        <option>和歌山</option>
+        <option>鳥取</option>
+        <option>島根</option>
+        <option>岡山</option>
+        <option>広島</option>
+        <option>山口</option>
+        <option>徳島</option>
+        <option>香川</option>
+        <option>愛媛</option>
+        <option>高知</option>
+        <option>福岡</option>
+        <option>佐賀</option>
+        <option>長崎</option>
+        <option>熊本</option>
+        <option>大分</option>
+        <option>宮崎</option>
+        <option>鹿児島</option>
+        <option>沖縄</option>
+    </select><br>
+    <input type="date">
+    <textarea name="freeans" rows="4" cols="40" placeholder="募集内容を入力してください"></textarea>
 
-    <input type="submit" value="add">
+    <input type="submit" value="送信">
 </form>
 </body>
 </html>
+
